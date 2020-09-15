@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
+import 'package:Trifecta/landing/livestream.dart';
 import 'package:http/http.dart' as http;
 import '../main.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,8 +16,6 @@ class ClassRoute extends StatefulWidget {
 }
 
 class _ClassRouteState extends State<ClassRoute> {
-
-
   @override
   void initState() {
     super.initState();
@@ -30,14 +30,15 @@ class _ClassRouteState extends State<ClassRoute> {
           backgroundColor: Colors.black,
           appBar: AppBar(
             backgroundColor: Colors.red[900],
-            title: Text("Sport",
+            title: Text(
+              "Sport",
               style: GoogleFonts.openSans(
                 textStyle: TextStyle(
                     //fontWeight: FontWeight.bold,
                     color: Colors.white,
                     fontSize: 28
-                  //fontSize:
-                ),
+                    //fontSize:
+                    ),
               ),
             ),
             bottom: TabBar(
@@ -56,44 +57,46 @@ class _ClassRouteState extends State<ClassRoute> {
                 ),
               ],
             ),
-           // title: Text('Isolate Example'),
+            // title: Text('Isolate Example'),
           ),
           body: TabBarView(
             children: [
               Center(
-
-                child:Column(
-                    children: [
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        width: 360,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.redAccent[700],
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-
-                        child:
-                          Row(
-                            children: <Widget>[
-                              FlatButton(
-                                child: Text("Beginner Class", style: GoogleFonts.openSans(
-
-                                    color: Colors.white,
-                                    fontSize: 20,
+                  child: Column(children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                    width: 360,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.redAccent[700],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        FlatButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LiveStreamPage(
+                                    channelName: "test",
+                                    role: ClientRole.Audience,
                                   ),
-                                )
-                              )
-                            ],
-                          )
-
-
-                      ),
-                  ]
-                )
-              ),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              "Beginner Class",
+                              style: GoogleFonts.openSans(
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
+                            ))
+                      ],
+                    )),
+              ])),
               Text("2"),
               Text("3"),
             ],
@@ -103,5 +106,3 @@ class _ClassRouteState extends State<ClassRoute> {
     );
   }
 }
-
-

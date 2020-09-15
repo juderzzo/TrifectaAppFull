@@ -136,7 +136,7 @@ class _HomeRouteState extends State<HomeRoute>{
                                           border: Border.all(color: Colors.redAccent),
                                           borderRadius: BorderRadius.circular(5),
                                             image: DecorationImage(
-                                                image: AssetImage("assets/images/sportcopy.png"), fit: BoxFit.cover),
+                                                image: AssetImage("assets/images/sport.jpg"), fit: BoxFit.cover),
 
                                         ),
                                         child: Column(
