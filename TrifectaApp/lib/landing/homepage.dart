@@ -8,6 +8,7 @@ import '../signup.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'classes.dart';
 import 'schedule.dart';
+import'profile.dart';
 
 
 class Constants{
@@ -404,7 +405,7 @@ class _HeaderState extends State<Header> {
 
   void choiceAction(String choice) {
     if (choice == Constants.Profile) {
-      Navigator.pop(context);
+      profileRouter();
     }
 
     if (choice == Constants.Schedule) {
@@ -426,6 +427,13 @@ class _HeaderState extends State<Header> {
 
   void classRouter(){
     Navigator.push(context, MaterialPageRoute(builder: (context) => HomeRoute()));
+  }
+
+  void profileRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ProfileRoute()),
+    );
   }
 
 
