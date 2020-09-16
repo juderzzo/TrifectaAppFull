@@ -61,7 +61,7 @@ class _LiveStreamPageState extends State<LiveStreamPage> {
     VideoEncoderConfiguration configuration = VideoEncoderConfiguration();
     configuration.dimensions = VideoDimensions(1920, 1080);
     await _engine.setVideoEncoderConfiguration(configuration);
-    await _engine.joinChannel("006ae8f73b14112416c9fa5373fb494024bIADZoeHAs2iQq6CzGK4F7sDUV/fWb492zOWDzoMlneQZjwx+f9gAAAAAEAArla291l1hXwEAAQDXXWFf", widget.channelName, null, 0);
+    await _engine.joinChannel("006ae8f73b14112416c9fa5373fb494024bIABuWPQ3G9ecGDdVx7jwXX83BCMPaXWkvRN/Nc9vEW2qEAx+f9gAAAAAEABmqXDy/69iXwEAAQD+r2Jf", widget.channelName, null, 0);
   }
 
   /// Create agora sdk instance and initialize
