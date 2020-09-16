@@ -24,12 +24,21 @@ class _ClassRouteState extends State<ClassRoute> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DefaultTabController(
+      home: SafeArea(
+
+        child: DefaultTabController(
         length: 3,
-        child: Scaffold(
+          child: Scaffold(
           backgroundColor: Colors.black,
           appBar: AppBar(
             backgroundColor: Colors.red[900],
+            //optional
+            leading: FlatButton(
+              child: Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: (){
+                Navigator.pop(context);
+              },
+            ),
             title: Text(
               "Sport",
               style: GoogleFonts.openSans(
@@ -102,6 +111,7 @@ class _ClassRouteState extends State<ClassRoute> {
             ],
           ),
         ),
+      ),
       ),
     );
   }

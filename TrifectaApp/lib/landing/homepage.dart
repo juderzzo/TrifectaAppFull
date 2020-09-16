@@ -4,9 +4,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../main.dart';
+import '../signup.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'classes.dart';
-
+import 'schedule.dart';
 
 
 class Constants{
@@ -36,10 +37,24 @@ class _HomeRouteState extends State<HomeRoute>{
     super.initState();
   }
 
+  void scheduleRouter() {
+      Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ScheduleRoute()),
+    );
+  }
+
+
   void choiceAction(String choice){
     if(choice == Constants.Profile){
       Navigator.pop(context);
     }
+
+    if(choice == Constants.Schedule){
+      scheduleRouter();
+    }
+
+
 
     //just reroute to all of the pages in the navbar
   }
@@ -51,7 +66,8 @@ class _HomeRouteState extends State<HomeRoute>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
+        body: SafeArea(
+          child: Center(
 
               child: Container(
                       decoration: BoxDecoration(
@@ -74,7 +90,7 @@ class _HomeRouteState extends State<HomeRoute>{
 
                             children:[
                               Container(
-                                height: 100,
+                                height: 97,
                                 child: Row(
                                   //padding: EdgeInsets.fromLTRB(0, 33, 0, 0),
                                 children:[
@@ -405,6 +421,7 @@ class _HomeRouteState extends State<HomeRoute>{
             ),
         ),
     ),
+        ),
 
     );
 

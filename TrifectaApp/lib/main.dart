@@ -39,9 +39,11 @@ class _FirstRouteState extends State<FirstRoute> {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: Scaffold(
 
-        body: Container(
+      home: SafeArea(
+        child: Scaffold(
+
+          body: Container(
 
             decoration: BoxDecoration(
               color: Colors.black
@@ -121,6 +123,7 @@ class _FirstRouteState extends State<FirstRoute> {
         ),
           ),
         ),
+      ),
       ),
     );
   }
@@ -305,7 +308,9 @@ class _BaseRouteState extends State<BaseRoute> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Container(
+
+      home: SafeArea(
+        child : Container(
         decoration: BoxDecoration(
         image: DecorationImage(
             image: AssetImage("assets/images/trifectaBase.png"),
@@ -381,6 +386,7 @@ class _BaseRouteState extends State<BaseRoute> {
         )
 
     ),
+      ),
 
     );
   }
