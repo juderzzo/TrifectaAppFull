@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="208e7bf2-1af1-4725-850b-a0aff6f1ffd5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TrifectaApp/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrifectaApp/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrifectaApp/lib/landing/classes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/lib/landing/classes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrifectaApp/lib/landing/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/lib/landing/homepage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrifectaApp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrifectaApp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrifectaApp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrifectaApp/lib/landing/schedule.dart" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/lib/landing/schedule.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +47,7 @@
       <updated>1600216196011</updated>
       <workItem from="1600216197224" duration="1052000" />
       <workItem from="1600277069268" duration="452000" />
-      <workItem from="1600277562766" duration="7821000" />
+      <workItem from="1600277562766" duration="9102000" />
     </task>
     <servers />
   </component>

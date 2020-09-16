@@ -89,48 +89,7 @@ class _HomeRouteState extends State<HomeRoute>{
                           child: Column(
 
                             children:[
-                              Container(
-                                height: 97,
-                                child: Row(
-                                  //padding: EdgeInsets.fromLTRB(0, 33, 0, 0),
-                                children:[
-                                  Spacer(),
-
-
-
-                                  SizedBox(width: 80),
-
-                                    Container(
-                                        height: 120,
-                                        width: 200,
-                                        child: ConstrainedBox(
-                                        constraints: BoxConstraints.expand(),
-                                        child: FlatButton(
-                                            onPressed: null,
-                                            padding: EdgeInsets.fromLTRB(0, 0, 0, 12),
-                                            child: Image.asset("assets/images/Dlogo.png")))),
-                                  Spacer(),
-                                  Container(
-                                    padding: EdgeInsets.fromLTRB(0, 0, 0, 24),
-                                  child: PopupMenuButton<String>(
-                                      icon: Icon(Icons.menu, color: Colors.white, size: 35),
-                                      onSelected: choiceAction,
-                                      itemBuilder: (BuildContext context){
-                                        return Constants.choices.map((String choice){
-                                          return PopupMenuItem<String>(
-                                            value: choice,
-                                            child: Text(choice),
-                                          );
-                                        }).toList();
-                                      }
-                                  ),
-                                  ),
-                                  SizedBox(width:30),
-
-
-                        ]
-                              ),
-        ),
+                              Header(),
 
 
                             Center(
@@ -426,5 +385,96 @@ class _HomeRouteState extends State<HomeRoute>{
     );
 
 
+  }
+}
+
+class Header extends StatefulWidget {
+  Header({Key key}) : super(key: key);
+  @override
+  _HeaderState createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+
+  void choiceAction(String choice) {
+    if (choice == Constants.Profile) {
+      Navigator.pop(context);
+    }
+
+    if (choice == Constants.Schedule) {
+      scheduleRouter();
+    }
+
+    if (choice == Constants.Classes) {
+      classRouter();
+    }
+  }
+
+  void scheduleRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ScheduleRoute()),
+    );
+  }
+
+
+  void classRouter(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeRoute()));
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color:Colors.black
+      ),
+      height: 97,
+
+      child: Row(
+        //padding: EdgeInsets.fromLTRB(0, 33, 0, 0),
+          children: [
+            Spacer(),
+
+
+            SizedBox(width: 80),
+
+            Container(
+                height: 120,
+                width: 200,
+                child: ConstrainedBox(
+                    constraints: BoxConstraints.expand(),
+                    child: FlatButton(
+                        onPressed: null,
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 12),
+                        child: Image.asset("assets/images/Dlogo.png")))),
+            Spacer(),
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 24),
+              child: PopupMenuButton<String>(
+                  icon: Icon(Icons.menu, color: Colors.white, size: 35),
+                  onSelected: choiceAction,
+                  itemBuilder: (BuildContext context) {
+                    return Constants.choices.map((String choice) {
+                      return PopupMenuItem<String>(
+                        value: choice,
+                        child: Text(choice),
+                      );
+                    }).toList();
+                  }
+              ),
+            ),
+            SizedBox(width: 30),
+
+
+          ]
+      ),
+    );
   }
 }

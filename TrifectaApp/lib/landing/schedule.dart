@@ -28,18 +28,9 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('Calendar'),
-          leading: FlatButton(
-            child: Icon(Icons.arrow_back, color:Colors.white),
-            onPressed: (){
-              Navigator.pop(context);
-            },
-          ),
-
-        ),
         body: Column(
           children: <Widget>[
+            Header(),
             TableCalendar(calendarController: _calendarController,)
           ],
         )
