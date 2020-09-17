@@ -6,6 +6,7 @@ import 'package:Trifecta/landing/livestream.dart';
 import 'package:http/http.dart' as http;
 import '../main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'homepage.dart';
 
 class ClassRoute extends StatefulWidget {
@@ -53,7 +54,7 @@ class _ClassRouteState extends State<ClassRoute> {
             bottom: TabBar(
               tabs: [
                 Tab(
-                  icon: Icon(Icons.drag_handle),
+                  icon: Icon(FontAwesomeIcons.box),
                   text: 'Boxing',
                 ),
                 Tab(
