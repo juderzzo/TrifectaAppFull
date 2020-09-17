@@ -1,6 +1,7 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'package:Trifecta/landing/challenges.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../main.dart';
@@ -13,13 +14,11 @@ import'profile.dart';
 
 class Constants{
   static const String Classes = 'Classes';
-  static const String Badges = 'Badges';
-  static const String Challenges = 'Challenges';
+  static const String Challenges = 'Progress';
   static const String Schedule = 'Schedule';
   static const String Profile = 'Profile';
   static const List<String> choices = <String> [
     Classes,
-    Badges,
     Challenges,
     Schedule,
     Profile
@@ -415,12 +414,23 @@ class _HeaderState extends State<Header> {
     if (choice == Constants.Classes) {
       classRouter();
     }
+
+    if (choice == Constants.Challenges) {
+      challengeRouter();
+    }
   }
 
   void scheduleRouter() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => ScheduleRoute()),
+    );
+  }
+
+  void challengeRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ChallengesRoute()),
     );
   }
 

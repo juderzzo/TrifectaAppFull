@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'homepage.dart';
+import '../main.dart';
 
 class ProfileRoute extends StatefulWidget {
   ProfileRoute({Key key}) : super(key: key);
@@ -10,7 +11,8 @@ class ProfileRoute extends StatefulWidget {
 
 
 class _ProfileRouteState extends State<ProfileRoute>{
-
+  bool _emails = true;
+  bool _push = false;
   @override
   void initState() {
     super.initState();
@@ -37,27 +39,28 @@ class _ProfileRouteState extends State<ProfileRoute>{
             color: Colors.white,
           ),
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(32.0),
+
             child: Column(
               children: <Widget>[
+
                 const SizedBox(height: 30.0),
+                Header(),
                 Row(
                   children: <Widget>[
+                    SizedBox(width: 10),
                     Container(
+                      //padding: const EdgeInsets.all(32.0),
                       width: 60,
                       height: 60,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: AssetImage("assets/images/trifectaBase.jpg"),
-                          fit: BoxFit.cover,
-                        ),
                         border: Border.all(
                           color: Colors.white,
                           width: 2.0,
                         ),
                       ),
+                      child: Icon(Icons.account_circle, size: 50),
                     ),
                     const SizedBox(width: 10.0),
                     Expanded(
@@ -65,14 +68,14 @@ class _ProfileRouteState extends State<ProfileRoute>{
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            "Jane Doe",
+                            "Full Name",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20.0,
                             ),
                           ),
                           Text(
-                            "Nepal",
+                            "Location",
                             style: TextStyle(
                               color: Colors.grey.shade400,
                             ),
@@ -85,7 +88,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
                 const SizedBox(height: 20.0),
                 ListTile(
                   title: Text(
-                    "Languages",
+                    "Achievements",
                     style: GoogleFonts.openSans(
                       textStyle: TextStyle(
                         //fontWeight: FontWeight.bold,
@@ -118,7 +121,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
                     ),
                   ),
                   subtitle: Text(
-                    "Jane Doe",
+                    "Full Name",
                     style: greyTExt,
                   ),
                   trailing: Icon(
@@ -139,12 +142,13 @@ class _ProfileRouteState extends State<ProfileRoute>{
                       ),
                     ),
                   ),
-                  subtitle: Text(
-                    "On",
-                    style: greyTExt,
-                  ),
-                  value: true,
-                  onChanged: (val) {},
+
+                    value: _emails,
+                  onChanged: (val) {
+                    setState(() {
+                      _emails = val;
+                    });
+                  },
                 ),
                 SwitchListTile(
                   title: Text(
@@ -158,12 +162,13 @@ class _ProfileRouteState extends State<ProfileRoute>{
                       ),
                     ),
                   ),
-                  subtitle: Text(
-                    "Off",
-                    style: greyTExt,
-                  ),
-                  value: false,
-                  onChanged: (val) {},
+
+                  value: _push,
+                  onChanged: (val) {
+                    setState(() {
+                      _push = val;
+                    });
+                  },
                 ),
                 ListTile(
                   title: Text(
@@ -177,7 +182,13 @@ class _ProfileRouteState extends State<ProfileRoute>{
                       ),
                     ),
                   ),
-                  onTap: () {},
+                  //add a warning message
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FirstRoute())
+                    );
+                  },
                 ),
               ],
             ),
