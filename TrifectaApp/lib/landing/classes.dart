@@ -8,6 +8,7 @@ import '../main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'homepage.dart';
+import 'classDesc.dart';
 
 class ClassRoute extends StatefulWidget {
   ClassRoute({Key key}) : super(key: key);
@@ -25,7 +26,10 @@ class _ClassRouteState extends State<ClassRoute> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SafeArea(
+      home: Container(
+      color: Colors.black,
+        child: SafeArea(
+
 
         child: DefaultTabController(
         length: 3,
@@ -88,13 +92,8 @@ class _ClassRouteState extends State<ClassRoute> {
                         FlatButton(
                             onPressed: () {
                               Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LiveStreamPage(
-                                    channelName: "test",
-                                    role: ClientRole.Audience,
-                                  ),
-                                ),
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ClassesDescRoute())
                               );
                             },
                             child: Text(
@@ -114,6 +113,7 @@ class _ClassRouteState extends State<ClassRoute> {
         ),
       ),
       ),
+    ),
     );
   }
 }
