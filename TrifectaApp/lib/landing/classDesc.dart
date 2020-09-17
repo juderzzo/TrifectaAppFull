@@ -15,7 +15,7 @@ class ClassesDescRoute extends StatefulWidget {
 }
 
 class _ClassesDescRouteState extends State<ClassesDescRoute> {
-  CalendarController _calendarController;
+  CalendarController _calendarController = new CalendarController();
 
   @override
   void initState() {
@@ -170,6 +170,12 @@ class _ClassesDescRouteState extends State<ClassesDescRoute> {
                           fontWeight: FontWeight.w300,
                           fontSize: 14.0
                       ),),
+                     Container(
+                       decoration: BoxDecoration(color: Colors.grey),
+                      child: TableCalendar(calendarController: _calendarController, calendarStyle: CalendarStyle(markersColor: Colors.white, todayColor: Colors.white,)
+                     ),
+                     )
+
 
                      // TableCalendar(calendarController: _calendarController,)
 

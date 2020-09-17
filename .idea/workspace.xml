@@ -4,7 +4,6 @@
     <list default="true" id="208e7bf2-1af1-4725-850b-a0aff6f1ffd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrifectaApp/lib/landing/classDesc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/lib/landing/classDesc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrifectaApp/lib/landing/classes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/TrifectaApp/lib/landing/classes.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,7 @@
       <updated>1600216196011</updated>
       <workItem from="1600216197224" duration="1052000" />
       <workItem from="1600277069268" duration="452000" />
-      <workItem from="1600277562766" duration="21328000" />
+      <workItem from="1600277562766" duration="21939000" />
     </task>
     <servers />
   </component>
