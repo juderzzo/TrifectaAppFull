@@ -1,6 +1,4 @@
 
-import 'dart:async';
-import 'dart:convert';
 import 'package:Trifecta/landing/challenges.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -10,6 +8,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'classes.dart';
 import 'schedule.dart';
 import'profile.dart';
+import 'classDesc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'spm.dart';
 
 
 class Constants{
@@ -24,6 +25,10 @@ class Constants{
     Profile
   ];
 }
+
+
+
+
 class HomeRoute extends StatefulWidget {
   HomeRoute({Key key}) : super(key: key);
   @override
@@ -31,6 +36,12 @@ class HomeRoute extends StatefulWidget {
 }
 
 class _HomeRouteState extends State<HomeRoute>{
+
+    final List<Tab> myTabs = <Tab>[
+    Tab(text: 'Sport'),
+    Tab(text: 'Body'),
+    Tab(text: 'Mind'),
+  ];
 
   @override
   void initState() {
@@ -65,328 +76,79 @@ class _HomeRouteState extends State<HomeRoute>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-          child: Center(
+    return  MaterialApp(
+      home: Container(
+        
+        color: Colors.black,
+        child: Center(
+          child: 
+          SafeArea(
+            child: 
+              Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+                
+             
+              child: 
+              Column(
+                children: [
+                  Container(
+                  height: MediaQuery.of(context).size.height * 9/10,
+                  width: MediaQuery.of(context).size.width,
+                  child: DefaultTabController(
+                    length: myTabs.length,
+                    
+                      child: Scaffold(
+                        appBar: AppBar(
+                          backgroundColor: Colors.black,
+                          title: Header(),
+                          bottom: TabBar(
+                            tabs: myTabs,
+                          ),
+                        ),
+                        body: TabBarView(
+                          children: [
+                            ListView(
+                              shrinkWrap: true,
+                              children: <Widget>[
+                                Class(),
+                                Class(),
+                                  Class(),
+                                  Class()
+                              ]
+                            ),
+                            Class(),
+                            Class(),
 
-              child: Container(
-                      decoration: BoxDecoration(
-                        color:Colors.black
+                          ]
+                      
+                        ), // WE have to make this send an input to the spm file
                       ),
-
-                      width: 800,
-
-                      // image:DecorationImage(
-                      //   image: AssetImage("assets/images/signup.jpg"), fit: BoxFit.cover,
-                      // ),
-                      //),
-
-
-
-                      child: Container(
-                          width: 300,
-
-                          child: Column(
-
-                            children:[
-                              Header(),
-
-
-                            Center(
-
-
-
-
-
-                               child: Container(
-                                  height: 550,
-                                  padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 340,
-                                        height: 170,
-
-                                        decoration: BoxDecoration(
-                                          border: Border.all(color: Colors.redAccent),
-                                          borderRadius: BorderRadius.circular(5),
-                                            image: DecorationImage(
-                                                image: AssetImage("assets/images/sport.jpg"), fit: BoxFit.cover),
-
-                                        ),
-                                        child: Column(
-                                          children: [
-                                          SizedBox(height: 10),
-                                            Row(
-                                              children: [
-                                                SizedBox(width: 200),
-
-
-                                                Text("Sport",
-                                                  style: GoogleFonts.openSans(
-                                                    textStyle: TextStyle(
-                                                        //fontWeight: FontWeight.bold,
-                                                        color: Colors.white,
-                                                        fontSize: 25
-                                                      //fontSize:
-                                                    ),
-                                                  ),
-                                                ),
-                                            ],
-
-                                            ),
-                                            SizedBox(height: 19),
-                                            Row(
-                                                children: [
-                                                  //Spacer(),
-                                                  SizedBox(width: 200),
-                                                  Text("Boxing, Hiit, \nand Running",
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 15
-                                                      )),
-                                                ]
-                                            ),
-                                            SizedBox(height: 20),
-
-                                            Row(
-                                              children: [
-                                                SizedBox(width: 150),
-                                                Container(
-                                                  height: 25,
-                                                  child: FlatButton(
-                                                    color: Colors.deepOrange,
-                                                    textColor: Colors.white,
-                                                    disabledColor: Colors.grey,
-                                                    disabledTextColor: Colors.black,
-                                                    //padding: EdgeInsets.all(8.0),
-                                                    splashColor: Colors.greenAccent,
-
-                                                    onPressed: () {
-                                                      Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(builder: (context) => ClassRoute()),
-                                                      );
-                                                    },
-                                                    child: Text(
-                                                      "See Sport",
-                                                      style: TextStyle(fontSize: 15.0),
-                                                    ),
-                                                  )
-                                                )
-
-                                              ]
-                                            ),
-
-                                            SizedBox(height:13),
-
-
-
-
-
-                                          ]
-                                        ),
-
-                                      ),
-                                      //SizedBox(height: 100),
-
-
-
-
-                                      SizedBox(height: 5),
-                                      Container(
-                                        width: 340,
-                                        height: 170,
-
-                                        decoration: BoxDecoration(
-                                          border: Border.all(color: Colors.yellow),
-                                          borderRadius: BorderRadius.circular(5),
-                                          image: DecorationImage(
-                                              image: AssetImage("assets/images/body-yellow.png"), fit: BoxFit.cover),
-
-                                        ),
-                                        child: Column(
-                                            children: [
-                                              SizedBox(height: 10),
-                                              Row(
-                                                children: [
-                                                  SizedBox(width: 20),
-
-
-                                                  Text("Body",
-                                                    style: GoogleFonts.openSans(
-                                                      textStyle: TextStyle(
-                                                        //fontWeight: FontWeight.bold,
-                                                          color: Colors.white,
-                                                          fontSize: 25
-                                                        //fontSize:
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-
-                                              ),
-                                              SizedBox(height: 19),
-                                              Row(
-                                                  children: [
-                                                    //Spacer(),
-                                                    SizedBox(width: 20),
-                                                    Text("Nutrition, Recovery,\n and Lifestyle",
-                                                        style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 15
-                                                        )),
-                                                  ]
-                                              ),
-                                              SizedBox(height: 20),
-
-                                              Row(
-                                                  children: [
-                                                    SizedBox(width: 220),
-                                                    Container(
-                                                        height: 25,
-                                                        child: FlatButton(
-                                                          color: Colors.yellow[700],
-                                                          textColor: Colors.white,
-                                                          disabledColor: Colors.grey,
-                                                          disabledTextColor: Colors.black,
-                                                          //padding: EdgeInsets.all(8.0),
-                                                          splashColor: Colors.greenAccent,
-                                                          onPressed: () {
-                                                            /*...*/
-                                                          },
-                                                          child: Text(
-                                                            "See Body",
-                                                            style: TextStyle(fontSize: 15.0),
-                                                          ),
-                                                        )
-                                                    )
-
-                                                  ]
-                                              ),
-
-
-
-
-
-
-
-                                            ]
-                                        ),
-
-                                      ),
-
-
-
-                                      SizedBox(height: 5),
-
-                                      Container(
-                                        width: 340,
-                                        height: 170,
-
-                                        decoration: BoxDecoration(
-                                          border: Border.all(color: Colors.lightBlue),
-                                          borderRadius: BorderRadius.circular(5),
-                                          image: DecorationImage(
-                                              image: AssetImage("assets/images/mind2-blue.png"), fit: BoxFit.cover),
-
-                                        ),
-                                        child: Column(
-                                            children: [
-                                              SizedBox(height: 5),
-                                              Row(
-                                                children: [
-                                                  SizedBox(width: 20),
-
-
-                                                  Text("Mind",
-                                                    style: GoogleFonts.openSans(
-                                                      textStyle: TextStyle(
-                                                        //fontWeight: FontWeight.bold,
-                                                          color: Colors.white,
-                                                          fontSize: 25
-                                                        //fontSize:
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  SizedBox(width:100),
-
-                                                  Text("\nNutrition, Recovery,\n and Running",
-                                                      style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 15
-                                                      )),
-                                                ],
-
-                                              ),
-
-
-                                              SizedBox(height: 70),
-
-                                              Row(
-                                                  children: [
-                                                    SizedBox(width: 20),
-                                                    Container(
-                                                        height: 25,
-                                                        child: FlatButton(
-                                                          color: Colors.lightBlueAccent,
-                                                          textColor: Colors.white,
-                                                          disabledColor: Colors.grey,
-                                                          disabledTextColor: Colors.black,
-                                                          //padding: EdgeInsets.all(8.0),
-                                                          splashColor: Colors.greenAccent,
-
-                                                          onPressed: () {
-                                                            /*...*/
-                                                          },
-                                                          child: Text(
-                                                            "See Mind",
-                                                            style: TextStyle(fontSize: 15.0),
-                                                          ),
-                                                        )
-                                                    )
-
-                                                  ]
-                                              ),
-
-                                              SizedBox(height:13),
-
-
-
-
-
-                                            ]
-                                        ),
-
-                                      ),
-
-
-
-
-                                    ]
-
-                                  ),
-                                ),
-
-
-
-
-
-
-                    ),
-                             //Spacer(),
-                ],
-                ),
-            ),
-        ),
-    ),
-        ),
-
+                    )
+                  ),
+
+                  BottomBar()
+                ]
+              )
+                
+              ),
+              
+              //list of classes in Sport body and mind
+              //Spacer(),
+              //bottom bar
+          )
+        )
+
+      )
     );
-
-
-  }
+    
+  } 
 }
+
+
+//HEADER 
+
+
 
 class Header extends StatefulWidget {
   Header({Key key}) : super(key: key);
@@ -453,7 +215,7 @@ class _HeaderState extends State<Header> {
       decoration: BoxDecoration(
         color:Colors.black
       ),
-      height: 97,
+      height: 50,
 
       child: Row(
         //padding: EdgeInsets.fromLTRB(0, 33, 0, 0),
@@ -461,38 +223,111 @@ class _HeaderState extends State<Header> {
             Spacer(),
 
 
-            SizedBox(width: 80),
+            //SizedBox(width: 80),
 
             Container(
-                height: 120,
+                height: 50,
                 width: 200,
-                child: ConstrainedBox(
-                    constraints: BoxConstraints.expand(),
-                    child: FlatButton(
-                        onPressed: null,
-                        padding: EdgeInsets.fromLTRB(0, 0, 0, 12),
-                        child: Image.asset("assets/images/Dlogo.png")))),
-            Spacer(),
-            Container(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 24),
-              child: PopupMenuButton<String>(
-                  icon: Icon(Icons.menu, color: Colors.white, size: 35),
-                  onSelected: choiceAction,
-                  itemBuilder: (BuildContext context) {
-                    return Constants.choices.map((String choice) {
-                      return PopupMenuItem<String>(
-                        value: choice,
-                        child: Text(choice),
-                      );
-                    }).toList();
-                  }
-              ),
-            ),
-            SizedBox(width: 30),
+               
+                child: Image.asset("assets/images/Dlogo.png")
+                        ),
+
+              Spacer()
+
+                        
+            //Spacer(),
+            // Container(
+            //   padding: EdgeInsets.fromLTRB(0, 0, 0, 24),
+            //   child: PopupMenuButton<String>(
+            //       icon: Icon(Icons.menu, color: Colors.white, size: 35),
+            //       onSelected: choiceAction,
+            //       itemBuilder: (BuildContext context) {
+            //         return Constants.choices.map((String choice) {
+            //           return PopupMenuItem<String>(
+            //             value: choice,
+            //             child: Text(choice),
+            //           );
+            //         }).toList();
+            //       }
+            //   ),
+            // ),
+            //SizedBox(width: 30),
 
 
           ]
       ),
+    );
+  }
+}
+
+
+class BottomBar extends StatefulWidget {
+  BottomBar({Key key}) : super(key: key);
+
+  @override
+  _BottomBarState createState() => _BottomBarState();
+}
+
+class _BottomBarState extends State<BottomBar> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return 
+    Container(
+      height: 46,
+      color: Colors.black,
+    child: Scaffold(
+      appBar: AppBar(
+        title: const Text('BottomNavigationBar Sample'),
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            title: Text(' ', style: TextStyle(fontSize: 1)),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text(' ', style: TextStyle(fontSize: 1)),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.date_range),
+            title: Text(' ', style: TextStyle(fontSize: 1)),
+          ),
+         
+          
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
+    ),
     );
   }
 }

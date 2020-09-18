@@ -38,7 +38,7 @@ class _ClassesDescRouteState extends State<ClassesDescRoute> {
                   color: Colors.black26
               ),
               height: 400,
-              child: Image.asset(image, fit: BoxFit.cover)),
+              child: Image.asset(image, fit: BoxFit.contain)),
           SingleChildScrollView(
             padding: const EdgeInsets.only(top: 16.0,bottom: 20.0),
             child: Column(
