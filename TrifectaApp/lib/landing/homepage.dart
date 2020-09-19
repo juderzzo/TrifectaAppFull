@@ -104,8 +104,12 @@ class _HomeRouteState extends State<HomeRoute>{
                         ),
                         floatingActionButton: FloatingActionButton.extended(
                           onPressed: () {
-                            // Add your onPressed code here!
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => FilterRoute(type: "Sport")),
+                              );
                           },
+                      
                           label: Text('Filter'),
                           icon: Icon(Icons.search),
                           backgroundColor: Colors.grey,
