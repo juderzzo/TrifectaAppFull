@@ -2,8 +2,16 @@
 import 'package:Trifecta/landing/challenges.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../main.dart';
+import '../signup.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'classes.dart';
+import 'schedule.dart';
+import'profile.dart';
+import 'classDesc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import'classDesc.dart';
+import 'homepage.dart';
 
 
 
@@ -14,7 +22,7 @@ class Class extends StatefulWidget {
   final String instructor;
 
 
-  Class({Key key}, this.name, this.image, this.instructor) : super(key: key);
+  const Class({Key key, this.name, this.image, this.instructor}) : super(key: key);
   @override
   _ClassState createState() => _ClassState();
 }
@@ -38,7 +46,7 @@ class _ClassState extends State<Class> {
 
   @override
   Widget build(BuildContext context) {
-    final Class args = ModalRoute.of(context).settings.arguments;
+    //final Class args = ModalRoute.of(context).settings.arguments;
     return Container(
      color: Colors.black,
       // ^^ will be based on type
@@ -55,7 +63,7 @@ class _ClassState extends State<Class> {
                   decoration: BoxDecoration(
                     //color: Colors.black,
                       image: DecorationImage(
-                        image: AssetImage(args.image),
+                        image: AssetImage(widget.image),
                         //fit: BoxFit.cover,
                       ),//Image.asset(image, fit: BoxFit.cover)
                       borderRadius: BorderRadius.circular(4),
@@ -68,14 +76,14 @@ class _ClassState extends State<Class> {
                       Column(
                         children: [
                           Spacer(),
-                          Text(args.name, style: GoogleFonts.montserrat(
+                          Text(widget.name, style: GoogleFonts.montserrat(
                                             color: Colors.white,
                                             fontSize: 20,
                                             fontWeight: FontWeight.w100,
                                           ),
                             ),
 
-                             Text(args.instructor, style: GoogleFonts.montserrat(
+                             Text(widget.instructor, style: GoogleFonts.montserrat(
                                             color: Colors.white,
                                             fontSize: 15,
                                             fontWeight: FontWeight.w100,
@@ -102,6 +110,233 @@ class _ClassState extends State<Class> {
       
       
       
+    );
+  }
+}
+
+
+
+//Bottom Bar
+
+class BottomBar extends StatefulWidget {
+  BottomBar({Key key}) : super(key: key);
+
+  @override
+  _BottomBarState createState() => _BottomBarState();
+}
+
+class _BottomBarState extends State<BottomBar> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+     
+       if (index == 0) {
+        classRouter();
+         _selectedIndex = index;
+        }
+
+      if (index == 1) {
+        profileRouter();
+         _selectedIndex = index;
+      }
+
+      if (index == 2) {
+        scheduleRouter();
+         _selectedIndex = index;
+      }
+
+    });
+  }
+
+  void scheduleRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ScheduleRoute()),
+    );
+  }
+
+  void challengeRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ChallengesRoute()),
+    );
+  }
+
+
+  void classRouter(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeRoute()));
+  }
+
+  void profileRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ProfileRoute()),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return 
+    Container(
+      height: 46,
+      color: Colors.black,
+    child: Scaffold(
+      appBar: AppBar(
+        title: const Text('BottomNavigationBar Sample'),
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            title: Text(' ', style: TextStyle(fontSize: 1)),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text(' ', style: TextStyle(fontSize: 1)),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.date_range),
+            title: Text(' ', style: TextStyle(fontSize: 1)),
+          ),
+         
+          
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
+    ),
+    );
+  }
+}
+
+
+class Header extends StatefulWidget {
+  Header({Key key}) : super(key: key);
+  @override
+  _HeaderState createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+
+  void choiceAction(String choice) {
+    if (choice == Constants.Profile) {
+      profileRouter();
+    }
+
+    if (choice == Constants.Schedule) {
+      scheduleRouter();
+    }
+
+    if (choice == Constants.Classes) {
+      classRouter();
+    }
+
+    if (choice == Constants.Challenges) {
+      challengeRouter();
+    }
+  }
+
+  void scheduleRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ScheduleRoute()),
+    );
+  }
+
+  void challengeRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ChallengesRoute()),
+    );
+  }
+
+
+  void classRouter(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeRoute()));
+  }
+
+  void profileRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ProfileRoute()),
+    );
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color:Colors.black
+      ),
+      height: 50,
+
+      child: Row(
+        //padding: EdgeInsets.fromLTRB(0, 33, 0, 0),
+          children: [
+            Spacer(),
+
+
+            //SizedBox(width: 80),
+
+            Container(
+                height: 50,
+                width: 200,
+               
+                child: Image.asset("assets/images/Dlogo.png")
+                        ),
+
+              Spacer()
+
+                        
+            //Spacer(),
+            // Container(
+            //   padding: EdgeInsets.fromLTRB(0, 0, 0, 24),
+            //   child: PopupMenuButton<String>(
+            //       icon: Icon(Icons.menu, color: Colors.white, size: 35),
+            //       onSelected: choiceAction,
+            //       itemBuilder: (BuildContext context) {
+            //         return Constants.choices.map((String choice) {
+            //           return PopupMenuItem<String>(
+            //             value: choice,
+            //             child: Text(choice),
+            //           );
+            //         }).toList();
+            //       }
+            //   ),
+            // ),
+            //SizedBox(width: 30),
+
+
+          ]
+      ),
     );
   }
 }
