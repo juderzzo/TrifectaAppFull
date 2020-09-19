@@ -38,7 +38,10 @@ class _ProfileRouteState extends State<ProfileRoute>{
           style: TextStyle(
             color: Colors.white,
           ),
-          child: SingleChildScrollView(
+          child: 
+          Column(
+            children: [
+            SingleChildScrollView(
 
             child: Column(
               children: <Widget>[
@@ -192,6 +195,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                 ),
               ],
             ),
+          ),
+          BottomBar(),
+          ]
           ),
         ),
       ),

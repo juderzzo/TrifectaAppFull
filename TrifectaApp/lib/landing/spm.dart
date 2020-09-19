@@ -9,7 +9,12 @@ import'classDesc.dart';
 
 
 class Class extends StatefulWidget {
-  Class({Key key}) : super(key: key);
+  final String name;
+  final String image;
+  final String instructor;
+
+
+  Class({Key key}, this.name, this.image, this.instructor) : super(key: key);
   @override
   _ClassState createState() => _ClassState();
 }
@@ -23,9 +28,9 @@ class _ClassState extends State<Class> {
 
   //Parameters
   final String type = "Sport";
-  final String image = "assets/images/sport1.png";
-  final String instructor = "Paul Bomba";
-  final String name =  "Beginner Boxing";
+  //final String image = "assets/images/sport2.png";
+  //final String instructor = "Paul Bamba";
+  //final String name =  "Beginner Boxing";
   final int weekly = 2;
   //image will have to be an input parameter
 
@@ -33,8 +38,9 @@ class _ClassState extends State<Class> {
 
   @override
   Widget build(BuildContext context) {
+    final Class args = ModalRoute.of(context).settings.arguments;
     return Container(
-     // color: Color.fromRGBO(128,0,0, 1),
+     color: Colors.black,
       // ^^ will be based on type
       child: Column(
         children: [
@@ -47,9 +53,9 @@ class _ClassState extends State<Class> {
               
             //width: 100,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    //color: Colors.black,
                       image: DecorationImage(
-                        image: AssetImage(image),
+                        image: AssetImage(args.image),
                         //fit: BoxFit.cover,
                       ),//Image.asset(image, fit: BoxFit.cover)
                       borderRadius: BorderRadius.circular(4),
@@ -62,14 +68,14 @@ class _ClassState extends State<Class> {
                       Column(
                         children: [
                           Spacer(),
-                          Text(name, style: GoogleFonts.montserrat(
+                          Text(args.name, style: GoogleFonts.montserrat(
                                             color: Colors.white,
                                             fontSize: 20,
                                             fontWeight: FontWeight.w100,
                                           ),
                             ),
 
-                             Text(instructor, style: GoogleFonts.montserrat(
+                             Text(args.instructor, style: GoogleFonts.montserrat(
                                             color: Colors.white,
                                             fontSize: 15,
                                             fontWeight: FontWeight.w100,

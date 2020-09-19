@@ -77,6 +77,7 @@ class _HomeRouteState extends State<HomeRoute>{
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Container(
         
         color: Colors.black,
@@ -111,14 +112,14 @@ class _HomeRouteState extends State<HomeRoute>{
                             ListView(
                               shrinkWrap: true,
                               children: <Widget>[
-                                Class(),
-                                Class(),
-                                  Class(),
-                                  Class()
+                                Class(name: "Beginner Boxing", instructor: "Paul Bomba", image: "assets/images/sport2.png" ),
+                                // Class(),
+                                //   Class(),
+                                //   Class()
                               ]
                             ),
-                            Class(),
-                            Class(),
+                            // Class(),
+                            // Class(),
 
                           ]
                       
@@ -289,8 +290,49 @@ class _BottomBarState extends State<BottomBar> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+     
+       if (index == 0) {
+        classRouter();
+         _selectedIndex = index;
+        }
+
+      if (index == 1) {
+        profileRouter();
+         _selectedIndex = index;
+      }
+
+      if (index == 2) {
+        scheduleRouter();
+         _selectedIndex = index;
+      }
+
     });
+  }
+
+  void scheduleRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ScheduleRoute()),
+    );
+  }
+
+  void challengeRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ChallengesRoute()),
+    );
+  }
+
+
+  void classRouter(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeRoute()));
+  }
+
+  void profileRouter() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ProfileRoute()),
+    );
   }
 
   @override
