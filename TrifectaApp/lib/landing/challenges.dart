@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'homepage.dart';
 import '../main.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'spm.dart';
+import '../all.dart';
 class ChallengesRoute extends StatefulWidget {
   ChallengesRoute({Key key}) : super(key: key);
   @override

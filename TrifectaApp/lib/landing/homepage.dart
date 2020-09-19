@@ -1,16 +1,9 @@
-
-import 'package:Trifecta/landing/challenges.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import '../main.dart';
-import '../signup.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'classes.dart';
-import 'schedule.dart';
-import'profile.dart';
-import 'classDesc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'spm.dart';
+import '../all.dart';
+
 
 
 class Constants{
@@ -108,6 +101,14 @@ class _HomeRouteState extends State<HomeRoute>{
                           bottom: TabBar(
                             tabs: myTabs,
                           ),
+                        ),
+                        floatingActionButton: FloatingActionButton.extended(
+                          onPressed: () {
+                            // Add your onPressed code here!
+                          },
+                          label: Text('Filter'),
+                          icon: Icon(Icons.search),
+                          backgroundColor: Colors.grey,
                         ),
                         body: 
                         Container(

@@ -1,17 +1,9 @@
 
-import 'package:Trifecta/landing/challenges.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import '../main.dart';
-import '../signup.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'classes.dart';
-import 'schedule.dart';
-import'profile.dart';
-import 'classDesc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import'classDesc.dart';
-import 'homepage.dart';
+import 'all.dart';
 
 
 
@@ -149,17 +141,17 @@ class _BottomBarState extends State<BottomBar> {
      
        if (index == 0) {
         classRouter();
-         _selectedIndex = index;
+         _selectedIndex = 0;
         }
 
       if (index == 1) {
         profileRouter();
-         _selectedIndex = index;
+         _selectedIndex = 1;
       }
 
       if (index == 2) {
         scheduleRouter();
-         _selectedIndex = index;
+         _selectedIndex = 2;
       }
 
     });
@@ -198,9 +190,7 @@ class _BottomBarState extends State<BottomBar> {
       height: 46,
       color: Colors.black,
     child: Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
+     
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
