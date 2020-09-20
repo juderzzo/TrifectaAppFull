@@ -1,2 +1,2 @@
-export'settings.dart';
+//export'settings.dart';
 export 'signup.dart';
