@@ -28,7 +28,12 @@ class _FilterRouteState extends State<FilterRoute>{
   bool pressExpert = false;
   bool pressTaken = false;
   bool pressClasses = false;
-  String dropdownValue = "Instructor";
+  bool pressBoxing = false;
+  bool pressHiit = false;
+  bool pressRunning = false;
+  String dropdownValue0 = 'Instructors (All)';
+  String dropdownValue1 = 'Frequency (All)';
+  
 
   //Future<List> futureAlbum;
 
@@ -36,7 +41,7 @@ class _FilterRouteState extends State<FilterRoute>{
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Container(
-        color: Colors.grey[300],
+        color: Colors.grey[400],
         child: Column(
           children: [
 
@@ -83,6 +88,7 @@ class _FilterRouteState extends State<FilterRoute>{
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height/50, ),
+            //Button Row 1
             Row(
               children: [
                 Spacer(),
@@ -93,13 +99,13 @@ class _FilterRouteState extends State<FilterRoute>{
               width: MediaQuery.of(context).size.width * 5/16,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.grey[200],
+                color: Colors.grey[300],
                 
               ),
 
               child: FlatButton(
                
-              //color: Colors.grey[200],
+              //color: Colors.grey[300],
               child: Center(
                 child: Column(
                   children: [
@@ -114,8 +120,8 @@ class _FilterRouteState extends State<FilterRoute>{
                   
                 )
               ),
-                color: pressBeginner ? Colors.white : Colors.grey[200],
-                //color: pressAll ? Colors.grey[200] : Colors.white,
+                color: pressBeginner ? Colors.white : Colors.grey[300],
+                //color: pressAll ? Colors.grey[300] : Colors.white,
                 onPressed: () => setState(() => pressBeginner = !pressBeginner),
               )
 
@@ -129,13 +135,13 @@ class _FilterRouteState extends State<FilterRoute>{
               width: MediaQuery.of(context).size.width * 5/16,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.grey[200],
+                color: Colors.grey[300],
                 
               ),
 
               child: FlatButton(
                
-              //color: Colors.grey[200],
+              //color: Colors.grey[300],
               child: Center(
                 child: Column(
                   children: [
@@ -163,8 +169,8 @@ class _FilterRouteState extends State<FilterRoute>{
                   
                 )
               ),
-                color: pressIntermediate ? Colors.white : Colors.grey[200],
-                //color: pressAll ? Colors.grey[200] : Colors.white,
+                color: pressIntermediate ? Colors.white : Colors.grey[300],
+                //color: pressAll ? Colors.grey[300] : Colors.white,
                 onPressed: () => setState(() => pressIntermediate = !pressIntermediate),
               )
 
@@ -177,13 +183,13 @@ class _FilterRouteState extends State<FilterRoute>{
               width: MediaQuery.of(context).size.width * 5/16,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.grey[200],
+                color: Colors.grey[300],
                 
               ),
 
               child: FlatButton(
                
-              //color: Colors.grey[200],
+              //color: Colors.grey[300],
               child: Center(
                 child: Column(
                   children: [
@@ -206,8 +212,8 @@ class _FilterRouteState extends State<FilterRoute>{
                   
                 )
               ),
-                color: pressExpert ? Colors.white : Colors.grey[200],
-                //color: pressAll ? Colors.grey[200] : Colors.white,
+                color: pressExpert ? Colors.white : Colors.grey[300],
+                //color: pressAll ? Colors.grey[300] : Colors.white,
                 onPressed: () => setState(() => pressExpert = !pressExpert),
               )
 
@@ -231,13 +237,13 @@ class _FilterRouteState extends State<FilterRoute>{
                   width: MediaQuery.of(context).size.width * 11/24,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[200],
+                    color: Colors.grey[300],
                     
                   ),
 
                   child: FlatButton(
                   
-                  //color: Colors.grey[200],
+                  //color: Colors.grey[300],
                   child: Center(
                     child: Column(
                       children: [
@@ -258,8 +264,8 @@ class _FilterRouteState extends State<FilterRoute>{
                       
                     )
                   ),
-                    color: pressTaken ? Colors.white : Colors.grey[200],
-                    //color: pressAll ? Colors.grey[200] : Colors.white,
+                    color: pressTaken ? Colors.white : Colors.grey[300],
+                    //color: pressAll ? Colors.grey[300] : Colors.white,
                     onPressed: () => setState(() => pressTaken = !pressTaken),
                   )
 
@@ -272,13 +278,13 @@ class _FilterRouteState extends State<FilterRoute>{
                   width: MediaQuery.of(context).size.width * 11/24,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[200],
+                    color: Colors.grey[300],
                     
                   ),
 
                   child: FlatButton(
                   
-                  //color: Colors.grey[200],
+                  //color: Colors.grey[300],
                   child: Center(
                     child: Column(
                       children: [
@@ -299,8 +305,8 @@ class _FilterRouteState extends State<FilterRoute>{
                       
                     )
                   ),
-                    color: pressClasses ? Colors.grey[200] : Colors.white,
-                    //color: pressAll ? Colors.grey[200] : Colors.white,
+                    color: pressClasses ? Colors.grey[300] : Colors.white,
+                    //color: pressAll ? Colors.grey[300] : Colors.white,
                     onPressed: () => setState(() => pressClasses = !pressClasses),
                   )
 
@@ -312,6 +318,233 @@ class _FilterRouteState extends State<FilterRoute>{
 
               ]
             ),
+
+
+            //Button Row 3
+            SizedBox(height: MediaQuery.of(context).size.height/50),
+
+            Row(
+              children: [
+                Spacer(),
+
+            //Button 1
+            Container(
+              height: MediaQuery.of(context).size.height/13,
+              width: MediaQuery.of(context).size.width * 5/16,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey[300],
+                
+              ),
+
+              child: FlatButton(
+               
+              //color: Colors.grey[300],
+              child: Center(
+                child: Column(
+                  children: [
+                    Spacer(),
+                    FaIcon(FontAwesomeIcons.allergies, size: 15, color: Colors.red,),
+                    Spacer(),
+                    Text("Boxing", style: GoogleFonts.montserrat(fontSize: 10, color: Colors.black,  fontWeight: FontWeight.w300,)),
+                    Spacer(),
+
+
+                  ]
+                  
+                )
+              ),
+                color: pressBoxing ? Colors.white : Colors.grey[300],
+                //color: pressAll ? Colors.grey[300] : Colors.white,
+                onPressed: () => setState(() => pressBoxing = !pressBoxing),
+              )
+
+            ),
+
+            //Button 2
+             Spacer(),
+
+            Container(
+              height: MediaQuery.of(context).size.height/13,
+              width: MediaQuery.of(context).size.width * 5/16,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey[300],
+                
+              ),
+
+              child: FlatButton(
+               
+              //color: Colors.grey[300],
+              child: Center(
+                child: Column(
+                  children: [
+                    Spacer(),
+                        
+                    FaIcon(FontAwesomeIcons.dumbbell, size: 15, color: Colors.red,),
+                    Spacer(),
+                    Text("H.I.I.T", style: GoogleFonts.montserrat(fontSize: 10, color: Colors.black,  fontWeight: FontWeight.w300,)),
+                    Spacer(),
+
+
+                  ]
+                  
+                )
+              ),
+                color: pressHiit ? Colors.white : Colors.grey[300],
+                //color: pressAll ? Colors.grey[300] : Colors.white,
+                onPressed: () => setState(() => pressHiit = !pressHiit),
+              )
+
+            ),
+
+             Spacer(),
+
+             Container(
+              height: MediaQuery.of(context).size.height/13,
+              width: MediaQuery.of(context).size.width * 5/16,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey[300],
+                
+              ),
+
+              child: FlatButton(
+               
+              //color: Colors.grey[300],
+              child: Center(
+                child: Column(
+                  children: [
+                    Spacer(),
+                     
+                      
+                        FaIcon(FontAwesomeIcons.running, size: 15, color: Colors.red,),
+                        
+                      
+                    Spacer(),
+                    Text("Running", style: GoogleFonts.montserrat(fontSize: 10, color: Colors.black,  fontWeight: FontWeight.w300,)),
+                    Spacer(),
+
+
+                  ]
+                  
+                )
+              ),
+                color: pressRunning ? Colors.white : Colors.grey[300],
+                //color: pressAll ? Colors.grey[300] : Colors.white,
+                onPressed: () => setState(() => pressRunning = !pressRunning),
+              )
+
+            ),
+            Spacer()
+
+
+
+              ]
+            ),
+
+
+
+            SizedBox(height: MediaQuery.of(context).size.height/19,),
+
+            //Dropdown buttons
+            Container(
+            height: MediaQuery.of(context).size.height/13,
+            width: MediaQuery.of(context).size.width * 18/20,
+            
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.white,
+            ),
+            
+
+            child: DropdownButtonHideUnderline(
+              
+              child: Padding(
+                padding: EdgeInsets.all(10),
+
+              
+            child: Scaffold(
+              backgroundColor: Colors.white,
+
+            body: DropdownButton<String>(
+                value: dropdownValue0,
+                isExpanded: true,
+                icon: Icon(Icons.keyboard_arrow_down),
+                iconSize: 24,
+                //elevation: 16,
+                style: GoogleFonts.montserrat(fontWeight: FontWeight.w300),
+                underline: null,
+                onChanged: (String newValue) {
+                  setState(() {
+                    dropdownValue0 = newValue;
+                  });
+                },
+                items: <String>['Instructors (All)' , 'Paul Bamba', 'Insturctor 2 ', 'Instructor 3']
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value, style: TextStyle(color: Colors.black)),
+                  );
+                }).toList(),
+               )
+            )
+              ),
+            ),
+
+            ),
+
+            SizedBox(height: MediaQuery.of(context).size.height/45,),
+
+            Container(
+            height: MediaQuery.of(context).size.height/13,
+            width: MediaQuery.of(context).size.width * 18/20,
+            
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.white,
+            ),
+            
+
+            child: DropdownButtonHideUnderline(
+              
+              child: Padding(
+                padding: EdgeInsets.all(10),
+
+              
+            child: Scaffold(
+              backgroundColor: Colors.white,
+
+            body: DropdownButton<String>(
+                value: dropdownValue1,
+                isExpanded: true,
+                icon: Icon(Icons.keyboard_arrow_down),
+                iconSize: 24,
+                //elevation: 16,
+                style: GoogleFonts.montserrat(fontWeight: FontWeight.w300),
+                underline: null,
+                onChanged: (String newValue) {
+                  setState(() {
+                    dropdownValue1 = newValue;
+                  });
+                },
+                items: <String>['Frequency (All)' , 'Weekly', 'Biweekly', 'Triweekly', 'Four days a week', 'Weekdays', '5 days a week', 'Every day']
+                    .map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value, style: TextStyle(color: Colors.black)),
+                  );
+                }).toList(),
+               )
+            )
+              ),
+            ),
+
+            ),
+
+            SizedBox(height: MediaQuery.of(context).size.height/45,),
+
+            
 
 
 
