@@ -53,6 +53,10 @@ flutter:
 
   assets:
     - assets/images/
+  fonts:
+    - family: Sofia
+      fonts:
+        - asset: assets/fonts/sofiapro-light.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
