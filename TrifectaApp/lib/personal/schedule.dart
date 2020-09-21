@@ -120,7 +120,7 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
                         ),
                     ),
 
-                    BottomBar(),
+                    
 
 
 

@@ -196,7 +196,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
             ),
           ),
           Spacer(),
-          BottomBar(),
+          
           ]
           ),
         ),
