@@ -11,6 +11,7 @@ import 'trainer/trainerlogin.dart';
 void main() {
   runApp(MaterialApp(
     title: 'Navigation Basics',
+    debugShowCheckedModeBanner: false,
     home: BaseRoute(),
   ));
 }
@@ -31,6 +32,7 @@ class _FirstRouteState extends State<FirstRoute> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
           body: Container(
