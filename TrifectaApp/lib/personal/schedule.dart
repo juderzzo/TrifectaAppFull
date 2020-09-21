@@ -66,7 +66,6 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
           child: Container(
             alignment: Alignment.center,
             width: 85,
-            height: 50,
             decoration: BoxDecoration(
             ),
             child: Column(
@@ -74,8 +73,8 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  height: 42,
-                  width: 42,
+                  height: 36,
+                  width: 36,
                   child: SvgPicture.asset(workoutList[index], color: Colors.white),
                 ),
                 Container(
@@ -83,7 +82,7 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
                   height: 25,
                   child: Text(
                     'workout',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    style: TextStyle(fontSize: 14, color: Colors.white),
                   )
                 ),
               ],
@@ -291,7 +290,41 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
           children: <Widget>[
             Header(),
             Container(
-              height: 90,
+              decoration: BoxDecoration(
+                color: Colors.black
+              ),
+              child: TableCalendar(
+                calendarController: _calendarController,
+                headerVisible: false,
+                initialCalendarFormat: CalendarFormat.week,
+                headerStyle: HeaderStyle(
+
+                ),
+                calendarStyle: CalendarStyle(
+                  outsideStyle: TextStyle(
+                    color: Colors.grey
+                  ),
+                  outsideWeekendStyle: TextStyle(
+                    color: Colors.grey
+                  ),
+                  selectedStyle: TextStyle(
+                    color: Colors.blue
+                  ),
+                  weekdayStyle: TextStyle(
+                    color: Colors.white
+                  ),
+                  weekendStyle: TextStyle(
+                    color: Colors.grey
+                  ),
+                  todayColor: Colors.transparent,
+                  selectedColor: Colors.transparent,
+                  contentPadding: EdgeInsets.only(top: 4),
+                  highlightToday: false,
+                ),
+              )
+            ),
+            Container(
+              height: 75,
               padding: EdgeInsets.only(left: 30),
               decoration: BoxDecoration(
                 border: Border(bottom: BorderSide(color: Colors.white))

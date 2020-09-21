@@ -54,6 +54,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/images
     - assets/
     - assets/images/workout_icons/svg/
   fonts:
