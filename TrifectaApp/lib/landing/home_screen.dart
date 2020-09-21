@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   //Future<List> futureAlbum;
   Color trifectaBlue = Color.fromRGBO(108, 206, 244, 1);
   final pageNames = ["Classes", "Profile", "Schedule"];
@@ -22,6 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
     ScheduleRoute(),
   ];
   int selectedIndex = 0;
+  void initState() {
+    super.initState();
+    tabController = TabController(length: myTabs.length, vsync: this);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
