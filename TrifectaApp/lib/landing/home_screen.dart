@@ -3,6 +3,8 @@ import 'package:titled_navigation_bar/titled_navigation_bar.dart';
 import '../all.dart';
 import 'classes_page.dart';
 
+TabController  tabController;
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
   @override
@@ -23,16 +25,37 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: selectedIndex == 0 ? AppBar(
+        backgroundColor: Colors.black,
+        title: Header(),
+        bottom: TabBar(
+          controller: tabController,
+          tabs: myTabs,
+        ),
+      ) : null,
+      floatingActionButton: selectedIndex == 0 ? FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => FilterRoute(type: "Sport")),
+          );
+        },
+        label: Text('Filter'),
+        icon: Icon(Icons.search),
+        backgroundColor: Colors.grey,
+      ) : null,
       backgroundColor: Colors.black,
       body: pages[selectedIndex],
       bottomNavigationBar: TitledBottomNavigationBar(
-          currentIndex: selectedIndex, // Use this to update the Bar giving a position
+          currentIndex:
+              selectedIndex, // Use this to update the Bar giving a position
           onTap: (index) {
             setState(() => selectedIndex = index);
           },
           items: [
             for (int i = 0; i < pageNames.length; i++)
-              TitledNavigationBarItem(title: Text(pageNames[i]), icon: pageIcons[i]),
+              TitledNavigationBarItem(
+                  title: Text(pageNames[i]), icon: pageIcons[i]),
           ]),
     );
   }
