@@ -90,76 +90,19 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  void choiceAction(String choice) {
-    if (choice == Constants.Profile) {
-      profileRouter();
-    }
-
-    if (choice == Constants.Schedule) {
-      scheduleRouter();
-    }
-
-    if (choice == Constants.Classes) {
-      classRouter();
-    }
-
-    if (choice == Constants.Challenges) {
-      challengeRouter();
-    }
-  }
-
-  void scheduleRouter() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ScheduleRoute()),
-    );
-  }
-
-  void challengeRouter() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ChallengesRoute()),
-    );
-  }
-
-  void classRouter() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HomeScreen()));
-  }
-
-  void profileRouter() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ProfileRoute()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.black),
-      height: 50,
-      child: Row(
-        //padding: EdgeInsets.fromLTRB(0, 33, 0, 0),
-        children: [
-          Spacer(),
-
-          //SizedBox(width: 80),
-
-          Container(
-            height: 50,
-            width: 200,
-            child: Image.asset("assets/images/Dlogo.png"),
-          ),
-
-          Spacer(),
-        ],
-      ),
+    return Row(
+      //padding: EdgeInsets.fromLTRB(0, 33, 0, 0),
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          height: 50,
+          width: 200,
+          child: Image.asset("assets/images/Dlogo.png"),
+        ),
+      ],
     );
   }
 }

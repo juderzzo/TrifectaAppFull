@@ -263,7 +263,7 @@ class _SignupFormState extends State<SignupForm> {
         width: 300,
         child: RaisedButton(
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => HomeScreen()),
             );

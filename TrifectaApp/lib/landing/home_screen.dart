@@ -3,7 +3,7 @@ import 'package:titled_navigation_bar/titled_navigation_bar.dart';
 import '../all.dart';
 import 'classes_page.dart';
 
-TabController  tabController;
+TabController tabController;
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -11,7 +11,8 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   //Future<List> futureAlbum;
   Color trifectaBlue = Color.fromRGBO(108, 206, 244, 1);
   final pageNames = ["Classes", "Profile", "Schedule"];
@@ -26,28 +27,39 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     super.initState();
     tabController = TabController(length: myTabs.length, vsync: this);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: selectedIndex == 0 ? AppBar(
-        backgroundColor: Colors.black,
-        title: Header(),
-        bottom: TabBar(
-          controller: tabController,
-          tabs: myTabs,
-        ),
-      ) : null,
-      floatingActionButton: selectedIndex == 0 ? FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => FilterRoute(type: "Sport")),
-          );
-        },
-        label: Text('Filter'),
-        icon: Icon(Icons.search),
-        backgroundColor: Colors.grey,
-      ) : null,
+      appBar: selectedIndex == 0
+          ? AppBar(
+              leading: Container(),
+              backgroundColor: Colors.black,
+              title: Container(
+                height: 50,
+                width: 200,
+                child: Image.asset("assets/images/Dlogo.png"),
+              ),
+              bottom: TabBar(
+                controller: tabController,
+                tabs: myTabs,
+              ),
+            )
+          : null,
+      floatingActionButton: selectedIndex == 0
+          ? FloatingActionButton.extended(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FilterRoute(type: "Sport")),
+                );
+              },
+              label: Text('Filter'),
+              icon: Icon(Icons.search),
+              backgroundColor: Colors.grey,
+            )
+          : null,
       backgroundColor: Colors.black,
       body: pages[selectedIndex],
       bottomNavigationBar: TitledBottomNavigationBar(
