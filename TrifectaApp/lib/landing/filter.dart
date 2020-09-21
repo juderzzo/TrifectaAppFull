@@ -552,7 +552,7 @@ class _FilterRouteState extends State<FilterRoute>{
                           },
                       
                           label: Text('See Classes'),
-                          icon: Icon(Icons.arrow_forward),
+                          icon: Icon(Icons.arrow_back),
                           backgroundColor: Colors.black,
              ),
 
