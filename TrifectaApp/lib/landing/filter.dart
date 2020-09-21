@@ -40,6 +40,7 @@ class _FilterRouteState extends State<FilterRoute>{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       home: Container(
         color: Colors.grey[400],
         child: Column(
@@ -542,7 +543,18 @@ class _FilterRouteState extends State<FilterRoute>{
 
             ),
 
-            SizedBox(height: MediaQuery.of(context).size.height/45,),
+            SizedBox(height: MediaQuery.of(context).size.height/5,),
+            FloatingActionButton.extended(
+                          onPressed: () {
+                            Navigator.pop(
+                                context,
+                              );
+                          },
+                      
+                          label: Text('See Classes'),
+                          icon: Icon(Icons.arrow_forward),
+                          backgroundColor: Colors.black,
+             ),
 
             
 
