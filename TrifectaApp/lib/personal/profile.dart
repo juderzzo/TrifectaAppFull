@@ -1,5 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:social_media_buttons/social_media_icons.dart';
+import 'package:table_calendar/table_calendar.dart';
 import '../all.dart';
 
 class ProfileRoute extends StatefulWidget {
@@ -15,8 +19,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
   @override
   void initState() {
     super.initState();
+    _calendarController = CalendarController();
   }
-
+  CalendarController _calendarController;
   static final String path = "lib/src/pages/settings/settings2.dart";
   final TextStyle whiteText = TextStyle(
     color: Colors.white,
@@ -26,9 +31,351 @@ class _ProfileRouteState extends State<ProfileRoute>{
   );
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Theme(
+    
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: Column(
+          children: [
+            Header(),
+            Expanded(
+              child: CustomScrollView(
+                slivers: [
+                  SliverAppBar(
+                    excludeHeaderSemantics: true,
+                    leading: Container(),
+                    automaticallyImplyLeading: false,
+                    toolbarHeight: 60,
+                    expandedHeight: 310,
+                    pinned: true,
+                    backgroundColor: Colors.black,
+                    flexibleSpace: FlexibleSpaceBar(
+                      centerTitle: true,
+                      title: Column(
+                        children: [
+                          Container(
+                            height: 44,
+                            /* color: Colors.red, */
+                            alignment: Alignment.topCenter,
+                            padding: EdgeInsets.only(top: 20),
+                            child: /* Container(
+                              width: 42,
+                              height: 42,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(100))
+                              ),
+                              child: Icon(Icons.person, size: 32,),
+                            ), */
+                            Text('username', style: TextStyle(fontSize: 24),),
+                          ),
+                        ],
+                      ),
+                      background: Column(
+                        children: [
+                          Container(
+                            height: 140,
+                            /* color: Colors.red, */
+                            alignment: Alignment.topCenter,
+                            padding: EdgeInsets.only(top: 20),
+                            child: Container(
+                              width: 100,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(100))
+                              ),
+                              child: Icon(Icons.person, size: 50,),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(bottom: 6),
+                            height: 30,
+                            alignment: Alignment.topCenter,
+                            child: Text(
+                              'Firstname Lastname',
+                              style: GoogleFonts.montserrat(
+                                color: Colors.white,
+                                fontSize: 24
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(bottom: 12),
+                            height: 30,
+                            alignment: Alignment.topCenter,
+                            child: Text(
+                              'city state location',
+                              style: GoogleFonts.montserrat(
+                                color: Colors.white60,
+                                fontSize: 18
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(bottom: 24),
+                            alignment: Alignment.center,
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 120,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18)
+                              ),
+                              child: Text(
+                                'add tags',
+                                style: GoogleFonts.montserrat(
+                                  color: Colors.black,
+                                  fontSize: 18
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(bottom: 18),
+                            height: 1,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SliverFillRemaining(
+                    child: SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 18),
+                            padding: EdgeInsets.only(left: 20, right: 20),
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.only(left: 20, right: 20),
+                              height: 48,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Text('6'),
+                                        Text('followers')
+                                      ],
+                                    ),
+                                  ),
+                                  Container(width: 30),
+                                  Container(
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Text('6'),
+                                        Text('following')
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(child: Container()),
+                                  Container(
+                                    width: 40,
+                                    child: Icon(SocialMediaIcons.facebook)
+                                  ),
+                                  Container(
+                                    width: 40,
+                                    child: Icon(SocialMediaIcons.instagram)
+                                  ),
+                                  Container(
+                                    width: 40,
+                                    child: Icon(SocialMediaIcons.twitter)
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(right: 20, left: 20),
+                            margin: EdgeInsets.only(bottom: 16),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text('Workouts', style: TextStyle(color: Colors.white),),
+                                    Expanded(child: Container()),
+                                    Text('view >', style: TextStyle(color: Colors.white),)
+                                  ],
+                                ),
+                                Container(height: 10,),
+                                Container(
+                                  height: 220,
+                                  padding: EdgeInsets.only(top: 12),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(12)
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Text('000',style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),),
+                                          Container(width: 10,),
+                                          Text('Total \nWorkouts', style: TextStyle( fontSize: 12),)
+                                        ],
+                                      ),
+                                      Container(margin: EdgeInsets.only(top: 8, bottom: 16), height: 1, color: Colors.black,),
+                                      Row(
+                                        children: [
+                                          Container(width: 30),
+                                          Icon(Icons.error_outline, size: 36,),
+                                          Container(width: 20),
+                                          Text('sport', style: TextStyle(fontSize: 24),),
+                                          Expanded(child: Container(),),
+                                          Text('000', style: TextStyle(fontSize: 24),),
+                                          Container(width: 30)
+                                        ],
+                                      ),
+                                      Container(height: 10),
+                                      Row(
+                                        children: [
+                                          Container(width: 30),
+                                          Icon(Icons.error_outline, size: 36,),
+                                          Container(width: 20),
+                                          Text('body', style: TextStyle(fontSize: 24),),
+                                          Expanded(child: Container(),),
+                                          Text('000', style: TextStyle(fontSize: 24),),
+                                          Container(width: 30)
+                                        ],
+                                      ),
+                                      Container(height: 10),
+                                      Row(
+                                        children: [
+                                          Container(width: 30),
+                                          Icon(Icons.error_outline, size: 36,),
+                                          Container(width: 20),
+                                          Text('mind', style: TextStyle(fontSize: 24),),
+                                          Expanded(child: Container(),),
+                                          Text('000', style: TextStyle(fontSize: 24),),
+                                          Container(width: 30)
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(right: 20, left: 20),
+                            margin: EdgeInsets.only(bottom: 16),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text('30 Day Activity', style: TextStyle(color: Colors.white),),
+                                    Expanded(child: Container()),
+                                    Text('view >', style: TextStyle(color: Colors.white),)
+                                  ],
+                                ),
+                                Container(height: 10,),
+                                Container(
+                                  height: 340,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(12)
+                                  ),
+                                  child: TableCalendar(
+                                    calendarController: _calendarController,
+                                  )
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(right: 20, left: 20),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text('Recent Achievments', style: TextStyle(color: Colors.white),),
+                                    Expanded(child: Container()),
+                                    Text('view >', style: TextStyle(color: Colors.white),)
+                                  ],
+                                ),
+                                Container(height: 10,),
+                                Container(
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(12)
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Container(
+                                            width: 60,
+                                            height: 70,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(color: Colors.black),
+                                              borderRadius: BorderRadius.circular(8)
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 60,
+                                            height: 70,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(color: Colors.black),
+                                              borderRadius: BorderRadius.circular(8)
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 60,
+                                            height: 70,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(color: Colors.black),
+                                              borderRadius: BorderRadius.circular(8)
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 60,
+                                            height: 70,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(color: Colors.black),
+                                              borderRadius: BorderRadius.circular(8)
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+      
+      
+      
+      /* Theme(
         data: Theme.of(context).copyWith(
           brightness: Brightness.dark,
           primaryColor: Colors.purple,
@@ -200,7 +547,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
           ]
           ),
         ),
-      ),
-    );
+      ), 
+    );*/
   }
 }

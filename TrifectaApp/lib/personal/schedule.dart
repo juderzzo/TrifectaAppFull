@@ -25,8 +25,10 @@ class ScheduleItem
   String title;
   String trainer;
   bool done;
+  var color;
+  var textColor;
 
-  ScheduleItem({this.time, this.intensity, this.title, this.trainer, this.done});
+  ScheduleItem({this.time, this.intensity, this.title, this.trainer, this.done, this.color, this.textColor = Colors.black});
 }
 
 class ScheduleRoute extends StatefulWidget {
@@ -102,21 +104,25 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
           intensity: 'intensity',
           title: 'complete workout title',
           trainer: 'trainer name • type',
-          done: false
+          done: false,
+          color: Colors.blue,
         ),
         ScheduleItem(
           time: '00:00 xm',
           intensity: 'intensity',
           title: 'complete workout title',
           trainer: 'trainer name • type',
-          done: false
+          done: false,
+          color: Colors.blue,
         ),
         ScheduleItem(
           time: '00:00 xm',
           intensity: 'intensity',
           title: 'complete workout title',
           trainer: 'trainer name • type',
-          done: false
+          done: false,
+          color: Colors.yellow[600],
+          textColor: Colors.black
         ),
       ]
     ),
@@ -128,14 +134,16 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
           intensity: 'intensity',
           title: 'complete workout title',
           trainer: 'trainer name • type',
-          done: false
+          done: false,
+          color: Colors.blue,
         ),
         ScheduleItem(
           time: '00:00 xm',
           intensity: 'intensity',
           title: 'complete workout title',
           trainer: 'trainer name • type',
-          done: false
+          done: false,
+          color: Colors.red,
         ),
       ]
     ),
@@ -147,21 +155,24 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
           intensity: 'intensity',
           title: 'complete workout title',
           trainer: 'trainer name • type',
-          done: false
+          done: false,
+          color: Colors.blue,
         ),
         ScheduleItem(
           time: '00:00 xm',
           intensity: 'intensity',
           title: 'complete workout title',
           trainer: 'trainer name • type',
-          done: false
+          done: false,
+          color: Colors.yellow[600],
         ),
         ScheduleItem(
           time: '00:00 xm',
           intensity: 'intensity',
           title: 'complete workout title',
           trainer: 'trainer name • type',
-          done: false
+          done: false,
+          color: Colors.blue,
         ),
       ]
     ),
@@ -190,7 +201,7 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
               padding: EdgeInsets.only(left: 10, right: 10),
               margin: EdgeInsets.only(bottom: 1),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: schedItem.color,
                 borderRadius: BorderRadius.only(
                   topLeft: drawTop ? Radius.circular(12) : Radius.circular(0),
                   topRight: drawTop ? Radius.circular(12) : Radius.circular(0),
@@ -206,7 +217,7 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
                     width: 75,
                     child: Text(
                       schedItem.time,
-                      style: TextStyle(color: Colors.white, fontSize: 18, fontFamily: 'montserrat', fontWeight: FontWeight.w400),
+                      style: TextStyle(color: Colors.black, fontSize: 18, fontFamily: 'montserrat', fontWeight: FontWeight.w400),
                     ),
                   ),
                   Expanded(
@@ -217,19 +228,19 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
                         Container(
                           child: Text(
                             schedItem.intensity,
-                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            style: TextStyle(fontSize: 16, color: schedItem.textColor),
                           ),
                         ),
                         Container(
                           child: Text(
                             schedItem.title,
-                            style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600),
+                            style: TextStyle(fontSize: 20, color: schedItem.textColor, fontWeight: FontWeight.w600),
                           ),
                         ),
                         Container(
                           child: Text(
                             schedItem.trainer,
-                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            style: TextStyle(fontSize: 16, color: schedItem.textColor),
                           ),
                         ),
                       ],
@@ -297,6 +308,16 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
                 calendarController: _calendarController,
                 headerVisible: false,
                 initialCalendarFormat: CalendarFormat.week,
+                availableCalendarFormats: const {CalendarFormat.week: 'Week'},
+                daysOfWeekStyle: DaysOfWeekStyle(
+                  weekdayStyle: GoogleFonts.montserrat(
+                    color: Colors.white,
+                    fontSize: 16
+                  ),
+                  weekendStyle: GoogleFonts.montserrat(
+                    color: Colors.grey,
+                  )
+                ),
                 headerStyle: HeaderStyle(
 
                 ),
@@ -317,7 +338,7 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
                     color: Colors.grey
                   ),
                   todayColor: Colors.transparent,
-                  selectedColor: Colors.transparent,
+                  selectedColor: Colors.white,
                   contentPadding: EdgeInsets.only(top: 4),
                   highlightToday: false,
                 ),
@@ -327,7 +348,7 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
               height: 75,
               padding: EdgeInsets.only(left: 30),
               decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.white))
+                border: Border(bottom: BorderSide(color: Colors.white),)
               ),
               child:  _getWorkoutTypes()
             ),
