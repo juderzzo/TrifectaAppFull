@@ -265,7 +265,7 @@ class _SignupFormState extends State<SignupForm> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HomeRoute()),
+              MaterialPageRoute(builder: (context) => HomeScreen()),
             );
           },
           textColor: Colors.white,

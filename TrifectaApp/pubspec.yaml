@@ -35,6 +35,7 @@ dependencies:
   table_calendar: ^2.2.3
   font_awesome_flutter: 8.7.0
   intl: ^0.16.1
+  titled_navigation_bar: ^4.1.0
 
 dev_dependencies:
   flutter_test:
