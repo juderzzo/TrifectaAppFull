@@ -118,6 +118,7 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
+  Color trifectaBlue = Color.fromRGBO(108, 206, 244, 1);
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -198,21 +199,21 @@ class _BottomBarState extends State<BottomBar> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
-            title: Text(' ', style: TextStyle(fontSize: 1)),
+            label: " ",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            title: Text(' ', style: TextStyle(fontSize: 1)),
+            label: " ",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.date_range),
-            title: Text(' ', style: TextStyle(fontSize: 1)),
+            label: " ",
           ),
          
           
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: trifectaBlue,
         onTap: _onItemTapped,
       ),
     ),

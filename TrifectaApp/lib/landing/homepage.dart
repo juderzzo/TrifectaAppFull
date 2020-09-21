@@ -66,6 +66,7 @@ class _HomeRouteState extends State<HomeRoute>{
 
 
   //Future<List> futureAlbum;
+  Color trifectaBlue = Color.fromRGBO(108, 206, 244, 1);
 
   @override
   Widget build(BuildContext context) {
