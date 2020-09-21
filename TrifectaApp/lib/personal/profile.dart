@@ -46,7 +46,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
                     leading: Container(),
                     automaticallyImplyLeading: false,
                     toolbarHeight: 60,
-                    expandedHeight: 310,
+                    expandedHeight: 240,
                     pinned: true,
                     backgroundColor: Colors.black,
                     flexibleSpace: FlexibleSpaceBar(
@@ -112,7 +112,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
                               ),
                             ),
                           ),
-                          Container(
+                          /* Container(
                             margin: EdgeInsets.only(bottom: 24),
                             alignment: Alignment.center,
                             child: Container(
@@ -131,7 +131,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                 ),
                               ),
                             ),
-                          ),
+                          ), */
                           Container(
                             margin: EdgeInsets.only(bottom: 18),
                             height: 1,
@@ -148,7 +148,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
                         children: [
                           Container(
                             margin: EdgeInsets.only(bottom: 18),
-                            padding: EdgeInsets.only(left: 20, right: 20),
+                            padding: EdgeInsets.only(left: 60, right: 60),
                             child: Container(
                               alignment: Alignment.center,
                               padding: EdgeInsets.only(left: 20, right: 20),
@@ -162,37 +162,19 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
-                                        Text('6'),
-                                        Text('followers')
-                                      ],
-                                    ),
+                                    width: 50,
+                                    child: Icon(SocialMediaIcons.snapchat_ghost)
                                   ),
-                                  Container(width: 30),
                                   Container(
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
-                                        Text('6'),
-                                        Text('following')
-                                      ],
-                                    ),
-                                  ),
-                                  Expanded(child: Container()),
-                                  Container(
-                                    width: 40,
+                                    width: 50,
                                     child: Icon(SocialMediaIcons.facebook)
                                   ),
                                   Container(
-                                    width: 40,
+                                    width: 50,
                                     child: Icon(SocialMediaIcons.instagram)
                                   ),
                                   Container(
-                                    width: 40,
+                                    width: 50,
                                     child: Icon(SocialMediaIcons.twitter)
                                   ),
                                 ],
@@ -206,9 +188,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                               children: [
                                 Row(
                                   children: [
-                                    Text('Workouts', style: TextStyle(color: Colors.white),),
+                                    Text('Workouts', style: TextStyle(color: Colors.blue),),
                                     Expanded(child: Container()),
-                                    Text('view >', style: TextStyle(color: Colors.white),)
+                                    Text('view >', style: TextStyle(color: Colors.blue),)
                                   ],
                                 ),
                                 Container(height: 10,),
@@ -278,9 +260,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                               children: [
                                 Row(
                                   children: [
-                                    Text('30 Day Activity', style: TextStyle(color: Colors.white),),
+                                    Text('30 Day Activity', style: TextStyle(color: Colors.blue),),
                                     Expanded(child: Container()),
-                                    Text('view >', style: TextStyle(color: Colors.white),)
+                                    Text('view >', style: TextStyle(color: Colors.blue),)
                                   ],
                                 ),
                                 Container(height: 10,),
@@ -291,7 +273,14 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                     borderRadius: BorderRadius.circular(12)
                                   ),
                                   child: TableCalendar(
+                                    availableGestures: AvailableGestures.horizontalSwipe,
+                                    initialCalendarFormat: CalendarFormat.month,
+                                    availableCalendarFormats: const {CalendarFormat.month: 'Month'},
                                     calendarController: _calendarController,
+                                    calendarStyle: CalendarStyle(
+                                      selectedColor: Colors.blue,
+                                      todayColor: Colors.yellow
+                                    ),
                                   )
                                 ),
                               ],
@@ -299,13 +288,14 @@ class _ProfileRouteState extends State<ProfileRoute>{
                           ),
                           Container(
                             padding: EdgeInsets.only(right: 20, left: 20),
+                            margin: EdgeInsets.only(bottom: 16),
                             child: Column(
                               children: [
                                 Row(
                                   children: [
-                                    Text('Recent Achievments', style: TextStyle(color: Colors.white),),
+                                    Text('Recent Achievments', style: TextStyle(color: Colors.blue),),
                                     Expanded(child: Container()),
-                                    Text('view >', style: TextStyle(color: Colors.white),)
+                                    Text('view >', style: TextStyle(color: Colors.blue),)
                                   ],
                                 ),
                                 Container(height: 10,),
@@ -360,7 +350,95 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                 ),
                             ],
                           ),
-                        )
+                        ),
+                        Container(
+                            padding: EdgeInsets.only(right: 20, left: 20),
+                            margin: EdgeInsets.only(bottom: 16),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text('Fitness Levels', style: TextStyle(color: Colors.blue),),
+                                    Expanded(child: Container()),
+                                    Text('view >', style: TextStyle(color: Colors.blue),)
+                                  ],
+                                ),
+                                Container(height: 10,),
+                                Container(
+                                  padding: EdgeInsets.only(left: 24),
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(bottom: 10),
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(12)
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text('9830', style: TextStyle(fontSize: 26, color: Colors.black)),
+                                      Container(width: 6,),
+                                      Text('steps', style: TextStyle(fontSize: 20, color: Colors.black))
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(left: 24),
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(bottom: 10),
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue,
+                                    borderRadius: BorderRadius.circular(12)
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text('1200', style: TextStyle(fontSize: 26, color: Colors.white)),
+                                      Container(width: 6,),
+                                      Text('calories burned', style: TextStyle(fontSize: 20, color: Colors.white))
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(left: 24),
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(bottom: 10),
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.yellow,
+                                    borderRadius: BorderRadius.circular(12)
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text('15km', style: TextStyle(fontSize: 26, color: Colors.black)),
+                                      Container(width: 6,),
+                                      Text('distance', style: TextStyle(fontSize: 20, color: Colors.black))
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(left: 24),
+                                  alignment: Alignment.centerLeft,
+                                  margin: EdgeInsets.only(bottom: 10),
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    borderRadius: BorderRadius.circular(12)
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text('70bpm', style: TextStyle(fontSize: 26, color: Colors.white)),
+                                      Container(width: 6,),
+                                      Text('average heart rate', style: TextStyle(fontSize: 20, color: Colors.white))
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                       ],
                     ),
                     ),
@@ -372,9 +450,6 @@ class _ProfileRouteState extends State<ProfileRoute>{
         ),
       ),
     );
-      
-      
-      
       /* Theme(
         data: Theme.of(context).copyWith(
           brightness: Brightness.dark,
