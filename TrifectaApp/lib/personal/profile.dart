@@ -148,7 +148,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
                         children: [
                           Container(
                             margin: EdgeInsets.only(bottom: 18),
-                            padding: EdgeInsets.only(left: 60, right: 60),
+                            padding: EdgeInsets.only(left: 20, right: 20),
                             child: Container(
                               alignment: Alignment.center,
                               padding: EdgeInsets.only(left: 20, right: 20),
@@ -376,9 +376,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Text('9830', style: TextStyle(fontSize: 26, color: Colors.black)),
+                                      Text('9830', style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.w300)),
                                       Container(width: 6,),
-                                      Text('steps', style: TextStyle(fontSize: 20, color: Colors.black))
+                                      Text('steps', style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.w300))
                                     ],
                                   ),
                                 ),
@@ -394,9 +394,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Text('1200', style: TextStyle(fontSize: 26, color: Colors.white)),
+                                      Text('1200', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.w300)),
                                       Container(width: 6,),
-                                      Text('calories burned', style: TextStyle(fontSize: 20, color: Colors.white))
+                                      Text('calories burned', style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w300))
                                     ],
                                   ),
                                 ),
@@ -412,9 +412,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Text('15km', style: TextStyle(fontSize: 26, color: Colors.black)),
+                                      Text('15km', style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.w300)),
                                       Container(width: 6,),
-                                      Text('distance', style: TextStyle(fontSize: 20, color: Colors.black))
+                                      Text('distance', style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.w300))
                                     ],
                                   ),
                                 ),
@@ -430,9 +430,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Text('70bpm', style: TextStyle(fontSize: 26, color: Colors.white)),
+                                      Text('70bpm', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.w300)),
                                       Container(width: 6,),
-                                      Text('average heart rate', style: TextStyle(fontSize: 20, color: Colors.white))
+                                      Text('average heart rate', style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w300))
                                     ],
                                   ),
                                 ),
