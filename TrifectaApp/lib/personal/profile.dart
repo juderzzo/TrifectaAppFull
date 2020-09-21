@@ -188,9 +188,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                               children: [
                                 Row(
                                   children: [
-                                    Text('Workouts', style: TextStyle(color: Colors.blue),),
+                                    Text('Workouts', style: TextStyle(color: Colors.white),),
                                     Expanded(child: Container()),
-                                    Text('view >', style: TextStyle(color: Colors.blue),)
+                                    Text('view >', style: TextStyle(color: Colors.white),)
                                   ],
                                 ),
                                 Container(height: 10,),
@@ -260,9 +260,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                               children: [
                                 Row(
                                   children: [
-                                    Text('30 Day Activity', style: TextStyle(color: Colors.blue),),
+                                    Text('30 Day Activity', style: TextStyle(color: Colors.white),),
                                     Expanded(child: Container()),
-                                    Text('view >', style: TextStyle(color: Colors.blue),)
+                                    Text('view >', style: TextStyle(color: Colors.white),)
                                   ],
                                 ),
                                 Container(height: 10,),
@@ -293,9 +293,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                               children: [
                                 Row(
                                   children: [
-                                    Text('Recent Achievments', style: TextStyle(color: Colors.blue),),
+                                    Text('Recent Achievments', style: TextStyle(color: Colors.white),),
                                     Expanded(child: Container()),
-                                    Text('view >', style: TextStyle(color: Colors.blue),)
+                                    Text('view >', style: TextStyle(color: Colors.white),)
                                   ],
                                 ),
                                 Container(height: 10,),
@@ -351,24 +351,24 @@ class _ProfileRouteState extends State<ProfileRoute>{
                             ],
                           ),
                         ),
-                        Container(
+                          Container(
                             padding: EdgeInsets.only(right: 20, left: 20),
                             margin: EdgeInsets.only(bottom: 16),
                             child: Column(
                               children: [
                                 Row(
                                   children: [
-                                    Text('Fitness Levels', style: TextStyle(color: Colors.blue),),
+                                    Text('Fitness Levels', style: TextStyle(color: Colors.white),),
                                     Expanded(child: Container()),
-                                    Text('view >', style: TextStyle(color: Colors.blue),)
+                                    Text('view >', style: TextStyle(color: Colors.white),)
                                   ],
                                 ),
                                 Container(height: 10,),
                                 Container(
-                                  padding: EdgeInsets.only(left: 24),
+                                  padding: EdgeInsets.only(left: 28),
                                   alignment: Alignment.centerLeft,
-                                  margin: EdgeInsets.only(bottom: 10),
-                                  height: 40,
+                                  margin: EdgeInsets.only(bottom: 16),
+                                  height: 48,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(12)
@@ -383,10 +383,10 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                   ),
                                 ),
                                 Container(
-                                  padding: EdgeInsets.only(left: 24),
+                                  padding: EdgeInsets.only(left: 28),
                                   alignment: Alignment.centerLeft,
-                                  margin: EdgeInsets.only(bottom: 10),
-                                  height: 40,
+                                  margin: EdgeInsets.only(bottom: 16),
+                                  height: 48,
                                   decoration: BoxDecoration(
                                     color: Colors.blue,
                                     borderRadius: BorderRadius.circular(12)
@@ -401,10 +401,10 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                   ),
                                 ),
                                 Container(
-                                  padding: EdgeInsets.only(left: 24),
+                                  padding: EdgeInsets.only(left: 28),
                                   alignment: Alignment.centerLeft,
-                                  margin: EdgeInsets.only(bottom: 10),
-                                  height: 40,
+                                  margin: EdgeInsets.only(bottom: 16),
+                                  height: 48,
                                   decoration: BoxDecoration(
                                     color: Colors.yellow,
                                     borderRadius: BorderRadius.circular(12)
@@ -419,10 +419,10 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                   ),
                                 ),
                                 Container(
-                                  padding: EdgeInsets.only(left: 24),
+                                  padding: EdgeInsets.only(left: 28),
                                   alignment: Alignment.centerLeft,
-                                  margin: EdgeInsets.only(bottom: 10),
-                                  height: 40,
+                                  margin: EdgeInsets.only(bottom: 16),
+                                  height: 48,
                                   decoration: BoxDecoration(
                                     color: Colors.red,
                                     borderRadius: BorderRadius.circular(12)
