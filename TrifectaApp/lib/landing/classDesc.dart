@@ -4,13 +4,13 @@ import 'package:Trifecta/landing/livestream.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 
-class ClassesDescRoute extends StatefulWidget {
-  ClassesDescRoute({Key key}) : super(key: key);
+class ClassDetailScreen extends StatefulWidget {
+  ClassDetailScreen({Key key}) : super(key: key);
   @override
-  _ClassesDescRouteState createState() => _ClassesDescRouteState();
+  _ClassDetailScreenState createState() => _ClassDetailScreenState();
 }
 
-class _ClassesDescRouteState extends State<ClassesDescRoute> {
+class _ClassDetailScreenState extends State<ClassDetailScreen> {
   CalendarController _calendarController = new CalendarController();
 
   @override

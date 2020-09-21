@@ -38,7 +38,9 @@ class _ClassState extends State<Class> {
         child: Column(children: [
           SizedBox(height: MediaQuery.of(context).size.height / 100),
           FlatButton(
+            
               padding: EdgeInsets.all(0),
+              onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) => ClassDetailScreen()));},
               child: Container(
                   height: MediaQuery.of(context).size.height / 5,
                   width: MediaQuery.of(context).size.width - 10,
@@ -61,7 +63,7 @@ class _ClassState extends State<Class> {
                         style: GoogleFonts.montserrat(
                           color: Colors.white,
                           fontSize: 20,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
                       Text(
@@ -69,7 +71,7 @@ class _ClassState extends State<Class> {
                         style: GoogleFonts.montserrat(
                           color: Colors.white,
                           fontSize: 15,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w200,
                         ),
                       ),
                       Spacer(),
