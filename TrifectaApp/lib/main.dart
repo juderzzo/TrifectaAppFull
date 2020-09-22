@@ -11,7 +11,7 @@ import 'all.dart';
 import 'trainer/trainerlogin.dart';
 
 void main() {
-  runApp(BaseRoute());
+  runApp(MaterialApp(home: BaseRoute()));
 }
 
 class FirstRoute extends StatefulWidget {
@@ -22,18 +22,21 @@ class FirstRoute extends StatefulWidget {
 }
 
 class _FirstRouteState extends State<FirstRoute> {
+  Color gunmetal = Color(0xFF2A3439);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
+        top: false,
         child: Scaffold(
+          
           body: Container(
-            decoration: BoxDecoration(color: Colors.transparent),
-            //image:DecorationImage(
-            //image: AssetImage("assets/images/signin.jpg"), fit: BoxFit.cover,
-            //),
-            //),
+            decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [Colors.black, gunmetal])),
             child: Center(
               child: Column(
                 children: [
