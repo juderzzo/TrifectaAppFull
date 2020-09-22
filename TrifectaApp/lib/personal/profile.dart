@@ -67,7 +67,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
                               ),
                               child: Icon(Icons.person, size: 32,),
                             ), */
-                            Text('username', style: TextStyle(fontSize: 24),),
+                            Text('Username', style: TextStyle(fontSize: 24),),
                           ),
                         ],
                       ),
@@ -79,11 +79,11 @@ class _ProfileRouteState extends State<ProfileRoute>{
                             alignment: Alignment.topCenter,
                             padding: EdgeInsets.only(top: 20),
                             child: Container(
-                              width: 100,
-                              height: 100,
+                              width: 75,
+                              height: 75,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.all(Radius.circular(100))
+                                borderRadius: BorderRadius.all(Radius.circular(75))
                               ),
                               child: Icon(Icons.person, size: 50,),
                             ),
@@ -96,7 +96,8 @@ class _ProfileRouteState extends State<ProfileRoute>{
                               'Firstname Lastname',
                               style: GoogleFonts.montserrat(
                                 color: Colors.white,
-                                fontSize: 24
+                                fontSize: 20,
+                                fontWeight: FontWeight.w100
                               ),
                             ),
                           ),
@@ -104,13 +105,13 @@ class _ProfileRouteState extends State<ProfileRoute>{
                             margin: EdgeInsets.only(bottom: 12),
                             height: 30,
                             alignment: Alignment.topCenter,
-                            child: Text(
-                              'city state location',
-                              style: GoogleFonts.montserrat(
-                                color: Colors.white60,
-                                fontSize: 18
-                              ),
-                            ),
+                            //child: Text(
+                              //'city state location',
+                              //style: GoogleFonts.montserrat(
+                               // color: Colors.white60,
+                               // fontSize: 18
+                              //),
+                            //),
                           ),
                           /* Container(
                             margin: EdgeInsets.only(bottom: 24),
@@ -132,11 +133,7 @@ class _ProfileRouteState extends State<ProfileRoute>{
                               ),
                             ),
                           ), */
-                          Container(
-                            margin: EdgeInsets.only(bottom: 18),
-                            height: 1,
-                            color: Colors.white,
-                          ),
+                         
                         ],
                       ),
                     ),
@@ -190,12 +187,12 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                   children: [
                                     Text('Workouts', style: TextStyle(color: Colors.white),),
                                     Expanded(child: Container()),
-                                    Text('view >', style: TextStyle(color: Colors.white),)
+                                    
                                   ],
                                 ),
                                 Container(height: 10,),
                                 Container(
-                                  height: 220,
+                                  height: 200,
                                   padding: EdgeInsets.only(top: 12),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
@@ -215,9 +212,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                       Row(
                                         children: [
                                           Container(width: 30),
-                                          Icon(Icons.error_outline, size: 36,),
+                                          ///Icon(Icons.error_outline, size: 36,),
                                           Container(width: 20),
-                                          Text('sport', style: TextStyle(fontSize: 24),),
+                                          Text('Sport', style: TextStyle(fontSize: 24),),
                                           Expanded(child: Container(),),
                                           Text('000', style: TextStyle(fontSize: 24),),
                                           Container(width: 30)
@@ -227,9 +224,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                       Row(
                                         children: [
                                           Container(width: 30),
-                                          Icon(Icons.error_outline, size: 36,),
+                                          //Icon(Icons.error_outline, size: 36,),
                                           Container(width: 20),
-                                          Text('body', style: TextStyle(fontSize: 24),),
+                                          Text('Body', style: TextStyle(fontSize: 24),),
                                           Expanded(child: Container(),),
                                           Text('000', style: TextStyle(fontSize: 24),),
                                           Container(width: 30)
@@ -239,9 +236,9 @@ class _ProfileRouteState extends State<ProfileRoute>{
                                       Row(
                                         children: [
                                           Container(width: 30),
-                                          Icon(Icons.error_outline, size: 36,),
+                                          //Icon(Icons.error_outline, size: 36,),
                                           Container(width: 20),
-                                          Text('mind', style: TextStyle(fontSize: 24),),
+                                          Text('Mind', style: TextStyle(fontSize: 24),),
                                           Expanded(child: Container(),),
                                           Text('000', style: TextStyle(fontSize: 24),),
                                           Container(width: 30)

@@ -248,7 +248,7 @@ class _ScheduleRouteState extends State<ScheduleRoute> {
                   ),
                   Container(
                     width: 42,
-                    child: Icon(Icons.panorama_fish_eye_outlined, color: Colors.white, size: 30,),
+                    child: Icon(Icons.panorama_fish_eye , color: Colors.white, size: 30,),
                   ),
                 ],
               ),
