@@ -202,33 +202,39 @@ class _SigninFormState extends State<SigninForm> {
             ),
           ]),
           SizedBox(height: 15),
-          RaisedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
-                ),
-              );
-            },
-            textColor: Colors.white,
-            color: Colors.lightBlue[800],
-            //padding: const EdgeInsets.all(0.0),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(7.0),
-              //color: Color(0xFF01579B)
-            ),
-            child: Container(
-              decoration: const BoxDecoration(
-                  //color: Colors.lightBlue[500],
-                  ),
-
-              //padding: const EdgeInsets.all(10.0),
-
-              child: const Text('Login', style: TextStyle(fontSize: 20)),
-            ),
-          ),
+          _buildLoginButton(context)
         ]));
+  }
+  Widget _buildLoginButton(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 0),
+      child: SizedBox(
+        height: 50,
+        width: double.infinity,
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondRoute()),
+            );
+          },
+          textColor: Colors.white,
+          color: Color.fromRGBO(108, 206, 244, 1),
+          //padding: const EdgeInsets.all(0.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(27.0),
+            //color: Color(0xFF01579B)
+          ),
+          child: Container(
+            decoration: const BoxDecoration(
+                //color: Colors.lightBlue[500],
+                ),
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: const Text('Sign in', style: TextStyle(fontSize: 20)),
+          ),
+        ),
+      ),
+    );
   }
 }
 
