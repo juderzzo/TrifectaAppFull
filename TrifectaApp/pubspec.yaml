@@ -38,6 +38,7 @@ dependencies:
   titled_navigation_bar: ^4.1.0
   flutter_svg: ^0.19.0
   social_media_buttons: ^0.1.2
+  video_player: '>=0.10.12+3 <2.0.0'
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,7 @@ flutter:
     - assets/images/
     - assets/
     - assets/images/workout_icons/svg/
+    - assets/videos/
   fonts:
     - family: Sofia
       fonts:

@@ -1,19 +1,17 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:video_player/video_player.dart';
 import 'all.dart';
 import 'trainer/trainerlogin.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: 'Navigation Basics',
-    debugShowCheckedModeBanner: false,
-    home: BaseRoute(),
-  ));
+  runApp(BaseRoute());
 }
 
 class FirstRoute extends StatefulWidget {
@@ -25,18 +23,13 @@ class FirstRoute extends StatefulWidget {
 
 class _FirstRouteState extends State<FirstRoute> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
           body: Container(
-            decoration: BoxDecoration(color: Colors.black),
+            decoration: BoxDecoration(color: Colors.transparent),
             //image:DecorationImage(
             //image: AssetImage("assets/images/signin.jpg"), fit: BoxFit.cover,
             //),
@@ -244,55 +237,85 @@ class BaseRoute extends StatefulWidget {
 }
 
 class _BaseRouteState extends State<BaseRoute> {
+  VideoPlayerController _controller;
   @override
   void initState() {
     super.initState();
+    _controller = VideoPlayerController.asset("assets/videos/paul.mp4")
+      ..initialize().then((_) {
+        // Once the video has been loaded we play the video and set looping to true.
+        _controller.setVolume(0);
+        _controller.play();
+        _controller.setLooping(true);
+        // Ensure the first frame is shown after the video is initialized.
+        setState(() {});
+      });
   }
 
+  double _sigmaX = 0; // from 0-10
+  double _sigmaY = 0; // from 0-10
+  double _opacity = 0;
+
+  Color trifectaBlue = Color.fromRGBO(108, 206, 244, 1);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SafeArea(
-        top: false,
-        child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/trifectaBase.png"),
-                  fit: BoxFit.cover),
+      home: Stack(
+        children: [
+          SizedBox.expand(
+            child: FittedBox(
+              fit: BoxFit.fill,
+              child: SizedBox(
+                width: _controller.value.size?.width ?? 0,
+                height: _controller.value.size?.height ?? 0,
+                child: VideoPlayer(_controller),
+              ),
             ),
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 50),
-                Container(
-                  height: 100,
-                  width: 400,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/Dlogo.png"),
-                        fit: BoxFit.cover),
+          ),
+          Container(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: _sigmaX, sigmaY: _sigmaY),
+              child: Container(
+                color: Colors.black.withOpacity(_opacity),
+              ),
+            ),
+          ),
+          Container(
+              child: Column(
+            children: <Widget>[
+              SizedBox(height: 75),
+              Container(
+                height: 100,
+                width: 400,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/Dlogo.png"),
+                    fit: BoxFit.cover,
                   ),
                 ),
-                Spacer(),
-                _buildSignupButton(context),
-                SizedBox(height: 15),
-                _buildSigninButton(context),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FlatButton(
-                      onPressed: () {},
-                      child: Text(
-                        'I am a trainer',
-                        style: TextStyle(color: Colors.blueGrey),
-                      ),
+              ),
+              Spacer(),
+              _buildSignupButton(context),
+              SizedBox(height: 15),
+              _buildSigninButton(context),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      'I am a trainer',
+                      style: TextStyle(color: Colors.blueGrey),
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-              ],
-            )),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+            ],
+          )),
+        ],
       ),
     );
   }
